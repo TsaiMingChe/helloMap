@@ -15,24 +15,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mua-P7-VGM">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-pF-aXU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lDz-2L-QMq" appends="YES" id="shJ-ad-hW9"/>
+                                </connections>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tNx-dO-jvg">
+                                <rect key="frame" x="44" y="44" width="287" height="31"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="0.40455033396946566" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="f0L-Ax-LYW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="一般"/>
+                                    <segment title="衛星"/>
+                                    <segment title="混合"/>
+                                </segments>
+                                <connections>
+                                    <action selector="typeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="2yj-WV-bCz"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="mua-P7-VGM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Eye-8e-uSG"/>
-                            <constraint firstItem="mua-P7-VGM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MtW-Gi-CgN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mua-P7-VGM" secondAttribute="trailing" id="arW-Tu-2a9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mua-P7-VGM" secondAttribute="bottom" id="jhE-oD-fYi"/>
+                            <constraint firstItem="tNx-dO-jvg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="6pA-FR-0I9"/>
+                            <constraint firstItem="wpS-pF-aXU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CkB-8m-5fk"/>
+                            <constraint firstItem="tNx-dO-jvg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="Qxv-br-bfl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wpS-pF-aXU" secondAttribute="bottom" id="UW0-hu-ElV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wpS-pF-aXU" secondAttribute="trailing" id="eW8-VI-ZHu"/>
+                            <constraint firstItem="wpS-pF-aXU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m68-h8-Bky"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tNx-dO-jvg" secondAttribute="trailing" constant="44" id="zPP-EA-euJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="myMap" destination="mua-P7-VGM" id="a4D-ub-2OT"/>
+                        <outlet property="mymap" destination="wpS-pF-aXU" id="e9F-JT-aQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lDz-2L-QMq">
+                    <connections>
+                        <action selector="longPressAction:" destination="BYZ-38-t0r" id="cvE-N3-2Sz"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="132" y="129"/>
         </scene>
